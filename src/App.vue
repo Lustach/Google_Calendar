@@ -1,32 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+  <my-header @LeftMenu="showLeftMenu"></my-header>
+    <v-content class="d-flex">
+
+<!--      <left-menu></left-menu>-->
+      <v-layout>
+      <left-menu v-show="leftMenu" class="pr-1"></left-menu>
+      <quest-container></quest-container>
+      </v-layout>
+<!--      <div></div>-->
+<!--      <HelloWorld/>-->
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+// import Header from './components/Header/App-Bar/App-Bar.vue'
+// import QuestContainer from "@/components/QuestContainer/QuestContainer.vue"
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@Component({
+  name: 'root-app',
+  components: {
+    'my-header':()=>import('@/components/Header/App-Bar/App-Bar.vue'),
+    // 'my-header': Header,
+    'quest-container':()=>import('@/components/QuestContainer/QuestContainer.vue'),
+    'left-menu':()=>import('@/components/LeftMenu/LeftMenu.vue')
+    // 'quest-container': QuestContainer,
+  }
+})
+export default class RootVue extends Vue {
+  @Prop() private msg!: string;
+  public leftMenu: boolean = true
+  public showLeftMenu(val:boolean){
+    console.log('fasdlk',val)
+    this.leftMenu=val
   }
 }
-</style>
+</script>
