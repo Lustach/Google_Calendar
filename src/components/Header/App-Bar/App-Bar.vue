@@ -7,34 +7,35 @@
 
       <v-flex class="">
         <v-layout align-center justify-space-between>
-          <v-btn icon @click="showLeftMenu()">
+          <v-btn icon @click="showLeftMenu()" color="indigo">
             <v-icon>mdi-menu</v-icon>
           </v-btn>
+          <v-icon class="mr-3">mdi-calendar</v-icon>
           <div>Календарь</div>
-          <v-btn class="ml-3">
-            Сегодня
+          <v-btn class="ml-3" small outlined color="indigo">
+            <span class="text-capitalize">Сегодня</span>
           </v-btn>
-          <v-btn icon small>
+          <v-btn icon small color="indigo">
             <v-icon>mdi-chevron-left</v-icon>
           </v-btn>
-          <v-btn icon small>
+          <v-btn icon small color="indigo">
             <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
           <div class="headline">Май-Июнь 2020</div>
           <v-spacer></v-spacer>
-          <v-btn icon>
+          <v-btn icon color="indigo">
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon color="indigo">
             <v-icon>mdi-help</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon color="indigo">
             <v-icon>mdi-cog</v-icon>
           </v-btn>
           <v-col cols="1" class="pa-0">
-          <v-select hide-details label="Неделя"></v-select>
+          <v-select hide-details label="Неделя" color="indigo"></v-select>
           </v-col>
-          <v-btn icon>
+          <v-btn icon color="indigo">
             <v-icon>mdi-apps</v-icon>
           </v-btn>
         </v-layout>
